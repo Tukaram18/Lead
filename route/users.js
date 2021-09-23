@@ -46,6 +46,21 @@ router.get('/', function(req, res) {
 // })
 
 
+router.post('/update', function(req, res) {
+    // console.log(req);
+    id = req.body['id']
+    uname = req.body['uname']
+    let sql = `update users set name = ? where id = ?`;
+    db.query(sql, [uname,id],function(err, data, fields) {
+        if (err) throw err;
+        res.json({
+            status: 200,
+           
+            message: "User updated successfully"
+        })
+    })
+});
+
 
 
 
