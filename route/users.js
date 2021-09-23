@@ -28,6 +28,27 @@ router.get('/', function(req, res) {
     })
 });
 
+router.post('/login', function(req, res) {
+    // console.log(req);
+    email = req.body['email']
+    password = req.body['password']
+    let sql = `SELECT * FROM users where email = ? and password = ?`;
+    db.query(sql, [email,password],function(err, data) {
+        if (err) throw err;
+        if(data!=""){
+            res.json({
+                message: "login successfully",
+                data:data           
+        })
+    }
+    else{
+        res.json({
+            message: "login failed",   
+    })
+    }
+    }) 
+});
+
 // router.post("/set", function(req, res) {
 //     let mail = req.body['email']
 //     let pass = req.body['password']
