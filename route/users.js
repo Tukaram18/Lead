@@ -42,7 +42,9 @@ router.post('/login', function(req, res) {
         })
     }
     else{
+        res.status(400)
         res.json({
+            
             message: "login failed",   
     })
     }
