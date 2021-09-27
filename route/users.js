@@ -51,22 +51,22 @@ router.post('/login', function(req, res) {
     }) 
 });
 
-// router.post("/set", function(req, res) {
-//     let mail = req.body['email']
-//     let pass = req.body['password']
-//     let pass = req.body['jmk']
-//     let pass = req.body['password']
-//     let pass = req.body['password']
+router.post("/set", function(req, res) {
+    let mail = req.body['email']
+    let pass = req.body['password']
+    let name = req.body['name']
+    let role = req.body['role']
+    let mobile = req.body['mobile']
 
-//     let query = "insert into users (email,password) values (?,?) "
-//     db.query(query, [e], [p], function(err, data) {
-//         if (err) throw err;
-//         res.json({
-//             data,
-//             message: "User lists retrieved successfully"
-//         })
-//     })
-// })
+    let query = "insert into users (email,password,role,contact,name) values (?,?,?,?,?) "
+    db.query(query, [mail,pass,role,mobile,name], function(err, data) {
+        if (err) throw err;
+        res.json({
+            data,
+            message: "User lists retrieved successfully"
+        })
+    })
+})
 
 
 router.post('/update', function(req, res) {
