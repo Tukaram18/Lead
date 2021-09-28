@@ -9,8 +9,8 @@ router.get("/:id", function(req, res) {
     db.query(query, id, function(err, data) {
         if (err) throw err;
         res.json({
-            data,
-            message: "User lists retrieved successfully"
+            data
+            
         })
     })
 })
@@ -22,8 +22,8 @@ router.get('/', function(req, res) {
         if (err) throw err;
         res.json({
             status: 200,
-            data,
-            message: "User lists retrieved successfully"
+            data
+            
         })
     })
 });
@@ -37,7 +37,7 @@ router.post('/login', function(req, res) {
         if (err) throw err;
         if(data!=""){
             res.json({
-                message: "login successfully",
+                message: "success",
                 data:data           
         })
     }
@@ -45,7 +45,7 @@ router.post('/login', function(req, res) {
         res.status(400)
         res.json({
             
-            message: "login failed",   
+            message: "failed",   
     })
     }
     }) 
@@ -62,8 +62,8 @@ router.post("/set", function(req, res) {
     db.query(query, [mail,pass,role,mobile,name], function(err, data) {
         if (err) throw err;
         res.json({
-            data,
-            message: "User lists retrieved successfully"
+            data:data,
+            message: "success"
         })
     })
 })
@@ -79,7 +79,7 @@ router.post('/update', function(req, res) {
         res.json({
             status: 200,
            
-            message: "User updated successfully"
+            message: "success"
         })
     })
 });
