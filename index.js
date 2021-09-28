@@ -12,6 +12,4 @@ app.use(bodyParser.json());
 app.use('/setuser', setRouter);
 app.use('/users', usersRouter);
 // var POR = process.env.PORT || 5000
-app.listen( process.env.PORT || 5000, function () {
-    console.log('Example app listening on port ' + (process.env.PORT || 5000) + '!');
-  });
+app.listen(5000);
